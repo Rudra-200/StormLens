@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "StormLens Integration",
+  "version": "1.0",
+  "description": "Integrates StormLens with the backend API",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["api.js"],
+    "matches": ["<all_urls>"]
+  }]
+}

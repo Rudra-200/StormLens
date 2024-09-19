@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormLens - RiskRadar</title>
+    <link rel="stylesheet" href="riskradar.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-blue-600 text-white font-sans">
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="StormLens Logo" class="logo">
+                <span class="brand-name">StormLens</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="aa.html">Home</a></li>
+                <li><a href="riskradar.html">RapidRadar</a></li>
+                <li><a href="climacast.html">ClimaCast</a></li>
+                <li><a href="stormseer.html">StormSeer</a></li>
+                <li><a href="contact.html">Amigos'</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <div class="bg-gray-200 bg-opacity-80 text-gray-800 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-2">RiskRadar: Your Personal Risk Guardian</h2>
+            <p class="mb-2">Stay Safe and Protected with Our Risk Management Portal.</p>
+            <p>Our user-friendly platform helps you identify, assess, and mitigate risks in your daily life. Gain valuable insights, streamline your safety planning, and make informed decisions to protect yourself and your loved ones.</p>
+        </div>
+
+        <div class="bg-red-900 bg-opacity-70 rounded-lg p-6 flex">
+            <div class="w-1/2 pr-4">
+                <h3 class="text-xl font-bold mb-4 ">Input an image</h3>
+                <div id="image-upload-area" class="border-2 border-dashed border-gray-300 rounded-lg p-4 h-48 flex items-center justify-center">
+                    <label class="cursor-pointer">
+                        <span class="bg-blue-500 text-white px-4 py-2 rounded">Select Image</span>
+                        <input type="file" id="image-upload" class="hidden" accept="image/*">
+                    </label>
+                </div>
+            </div>
+            <div class="w-1/2 pl-4">
+                <h3 class="text-xl font-bold mb-4">Report</h3>
+                <div id="analysis-report" class="bg-gray-800 rounded-lg p-4 mb-4 h-32 flex items-center justify-center">
+                    <p class="text-gray-400">Analysis report will be displayed here</p>
+                </div>
+                <button 
+    id="analyze-button"
+    class="bg-blue-500 text-black px-4 py-2 rounded w-full hover:bg-blue-600 transition-colors"
+>
+    Analyse
+</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="riskradar.js"></script>
+</body>
+</html>

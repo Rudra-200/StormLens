@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormLens - Cyclone Intensity Forecaster</title>
+    <link rel="stylesheet" href="stormseer.css">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-b from-teal-500 to-blue-600 text-white">
+        <header>
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="images/logo.jpg" alt="StormLens Logo" class="logo">
+                    <span class="brand-name">StormLens</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="aa.html">Home</a></li>
+                    <li><a href="riskradar.html">RapidRadar</a></li>
+                    <li><a href="climacast.html">ClimaCast</a></li>
+                    <li><a href="stormseer.html">StormSeer</a></li>
+                    <li><a href="contact.html">Amigos'</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container mx-auto mt-8 p-4">
+            <section class="bg-gray-200 bg-opacity-20 rounded-lg p-6 mb-8">
+                <h2 class="text-xl font-semibold mb-2">StormSeer: Cyclone Intensity Forecaster</h2>
+                <p class="text-sm">
+                    Understand the Storm's Strength and Prepare Accordingly.
+                    Our advanced tool calculates the intensity of cyclones based on various factors, including wind pressure, latitude, longitude, humidity,
+                    temperature, visibility, precipitation, sea surface temperature, storm surge, wave height, and air density. By inputting these data points,
+                    StormSeer delivers precise predictions to help you understand the storm's strength and take necessary precautions.
+                </p>
+            </section>
+
+            <div class="flex gap-4">
+                <div class="flex-grow grid grid-cols-2 gap-4 bg-black bg-opacity-50 p-6 rounded-lg" id="parameters-container">
+                    <!-- Parameters will be dynamically added here -->
+                </div>
+                <div class="w-1/3 bg-gray-800 bg-opacity-70 rounded-lg p-4 flex flex-col">
+                    <h3 class="text-xl mb-4 font-semibold">Report</h3>
+                    <div class="flex-grow bg-gray-700 bg-opacity-50 rounded p-4 mb-4 overflow-auto" id="result">
+                        Analysis report will be displayed here
+                    </div>
+                    <button id="analyze-button" class="w-full font-semibold py-2 px-4 rounded bg-blue-500 hover:bg-blue-600">
+                        Analyse
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="stormseer.js"></script>
+</body>
+</html>
