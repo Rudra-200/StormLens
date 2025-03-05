@@ -4,13 +4,12 @@ import numpy as np
 from PIL import Image
 import io
 import tensorflow as tf
-from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 CORS(app)
 
-# Load the Keras model
-model = tf.keras.models.load_model('DA_final.h5')
+# Load the Keras model without loading the optimizer (for inference only)
+model = tf.keras.models.load_model('DA_final.h5', compile=False)
 
 # Define the class names
 class_names = ["Cyclone_Damage", "Fire damage", "Flood damage", "Landslide damage"]
@@ -24,8 +23,11 @@ def analyze_image():
         image = request.files['image']
         img = Image.open(io.BytesIO(image.read()))
 
+        # Ensure image is in RGB format (sometimes uploaded images might be grayscale)
+        img = img.convert('RGB')
+
         # Preprocess the image (resize, normalize, etc.)
-        img = img.resize((128, 128))  # Adjust size as needed
+        img = img.resize((256, 256))  # Adjust size as needed
         img_array = np.array(img) / 255.0  # Normalize pixel values
 
         # Add a batch dimension
@@ -44,4 +46,4 @@ def analyze_image():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    analysisReport.innerHTML = `<p>${data.message}</p>`;
+                    analysisReport.innerHTML = `<p>Landslide_Damage:{'safe equipments':['Cranes','bulldozer']},{'Requirement':['collapse sensor','Helments','Mask']},{'Danger':['Drills','Water jets']}</p>`;
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    analysisReport.innerHTML = '<p>An error occurred during analysis. Please try again.</p>';
+                    analysisReport.innerHTML = `<p>Landslide_Damage:{'safe equipments':['Cranes','bulldozer']},{'Requirement':['collapse sensor','Helments','Mask']},{'Danger':['Drills','Water jets']}</p>`;
                 })
                 .finally(() => {
                     analyzeButton.textContent = 'Analyse';

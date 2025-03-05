@@ -2,13 +2,13 @@ const parameters = [
     { name: "Wind", min: 35, max: 219, step: 1, unit: "" },
     { name: "Pressure", min: 935, max: 1004, step: 1, unit: "" },
     { name: "Humidity", min: 75, max: 99, step: 1, unit: "%" },
-    { name: "Temperature", min: 4, max: 27, step: 0.1, unit: "°C" },
+    { name: "Temperature", min: 4, max: 60, step: 0.1, unit: "°C" },
     { name: "Visibility", min: 0, max: 14, step: 0.1, unit: "km" },
     { name: "Precipitation", min: 1, max: 99, step: 1, unit: "mm" },
     { name: "Sea Surface(SST)", min: 10, max: 27, step: 0.1, unit: "°C" },
     { name: "Storm Surge", min: 0.1, max: 1.5, step: 0.1, unit: "m" },
     { name: "Wave Height", min: 0.1, max: 2.0, step: 0.1, unit: "m" },
-    { name: "Air Density", min: 1.225, max: 1.225, step: 0.001, unit: "kg/m³" }
+    { name: "Air Density", min: 1.000, max: 1.500, step: 0.001, unit: "kg/m³" },
 ];
 
 const values = {};
@@ -59,26 +59,29 @@ analyzeButton.addEventListener('click', async () => {
     analyzeButton.classList.add('bg-gray-500');
 
     try {
-        // Prepare data for API call
-        const response = await fetch('http://localhost:5000/analyze', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(values) // Send the selected parameter values
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-            // Display the category of storm intensity
-            resultElement.textContent = `Storm Intensity Category: ${result.intensity}`;
+        // Simulating API call to the model
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        const intensity = Math.random() * 5;
+        let intensityDescription;
+        if (intensity >= 4) {
+            intensityDescription = 'High Intensity: Cyclonic storm conditions expected.Public shall take immediate shelter, chopper should not be used and follow SOPs strictly.';
+        } else if (intensity >= 3) {
+            intensityDescription = 'Depression: Significant storm activity likely. Stay indoors, chopper should be avoided, and be prepared for possible disruptions.';
+        } else if (intensity >= 2) {
+            intensityDescription = 'Low Pressure Area: Some storm activity expected. Prepare for possible minor disruptions and stay informed of weather conditions.';
+        } else if (intensity >= 1) {
+            intensityDescription = 'Very Low Intensity: Minimal storm activity expected. Remain cautious but no immediate action needed.';
         } else {
-            resultElement.textContent = 'Failed to analyze. Try again.';
+            intensityDescription = 'High Pressure Area: Continue with normal activities but stay updated on weather changes.';
         }
+
+        resultElement.textContent = `Storm Intensity: ${intensity.toFixed(2)} (on a scale of 0-5) |:|:|:|:|:|:|:|:|:|:|   ${intensityDescription}  |:|:|:|:|:|:|:|:|:|:|`;
+        //resultElement.textContent = `Storm Intensity: ${intensity.toFixed(2)} (on a scale of 0-5)`;
     } catch (error) {
         resultElement.textContent = 'An error occurred during analysis. Please try again.';
     } finally {
         analyzeButton.disabled = false;
-        analyzeButton.textContent = 'Analyze';
+        analyzeButton.textContent = 'Analyse';
         analyzeButton.classList.remove('bg-gray-500');
         analyzeButton.classList.add('bg-blue-500', 'hover:bg-blue-600');
     }

@@ -7,7 +7,7 @@ const teamMembers = [
     },
     {
         name: "D Vamsi Krishna",
-        image: "/images/DVK.jpg?height=300&width=300",
+        image: "/images/DVK.svg",
         background: "#00FA9A",
         bio: "Innovator at heart, problem-solver by nature. Blending cutting-edge technology with creativity to shape solutions that matter. Passionate about turning data into insights and challenges into opportunities. Let's make the future sustainable and smart!."
     },
@@ -16,6 +16,12 @@ const teamMembers = [
         image: "/images/IH.svg?height=300&width=300",
         background: "#FF7F50",
         bio: "Creative thinker, tech trailblazer. Empowering the world with AI-driven insights and sustainable solutions. On a relentless quest to transform challenges into innovations that shape the future."
+    },
+    {
+        name: "Jnanasri Kalakota",
+        image: "/images/JK.jpg?height=300&width=300",
+        background: "#FF7F50",
+        bio: "Always a Student"
     }
 ];
 
